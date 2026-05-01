@@ -25,28 +25,23 @@ console.log("Trying to connect DB...");
 🔐 SIGNUP API
 ========================= */
 app.post("/signup", async (req, res) => {
-try {
-    const { email, password } = req.body;
+const { email, password } = req.body;
 
+try {
     const existingUser = await User.findOne({ email });
+
     if (existingUser) {
-    return res.json({ message: "User already exists" });
+    return res.status(400).json({ message: "User already exists" });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    const newUser = new User({
-    email,
-    password: hashedPassword,
-    });
-
+    const newUser = new User({ email, password });
     await newUser.save();
 
-    res.json({ message: "User saved successfully" });
+    res.status(200).json({ message: "Signup successful" });
 
-} catch (error) {
-    console.log(error);
-    res.json({ message: "Error saving user" });
+} catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Server error" });
 }
 });
 
