@@ -17,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 // ✅ MongoDB connection
-mongoose.connect("mongodb+srv://shrutikumari5709_db_user:vA5tCIYrS7BCy48G@cluster0.afpzjdk.mongodb.net/?appName=Cluster0/talentiq")
+mongoose.connect("mongodb+srv://shrutikumari5709_db_user:vA5tCIYrS7BCy48G@cluster0.afpzjdk.mongodb.net/talentiq?retryWrites=true&w=majority")
 .then(() => console.log("MongoDB connected"))
 .catch((err) => console.log(err));
 
