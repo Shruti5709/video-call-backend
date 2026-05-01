@@ -17,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 // ✅ MongoDB connection
-mongoose.connect("mongodb://127.0.0.1:27017/talentiq")
+mongoose.connect("mongodb+srv://shrutikumari5709_db_user:vA5tCIYrS7BCy48G@cluster0.afpzjdk.mongodb.net/?appName=Cluster0/talentiq")
 .then(() => console.log("MongoDB connected"))
 .catch((err) => console.log(err));
 
