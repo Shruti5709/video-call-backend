@@ -8,7 +8,7 @@ const [message, setMessage] = useState("");
 
 const handleSignup = async () => {
     try {
-    const res = await fetch("https://video-call-backend-jjsc.onrender.com/login", {
+    const res = await fetch("https://video-call-backend-jjsc.onrender.com/signup", {
         method: "POST",
         headers: {
         "Content-Type": "application/json",
